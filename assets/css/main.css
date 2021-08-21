@@ -1,0 +1,276 @@
+@font-face {
+    font-family: myFirstFont1;
+    src: url('../fonts/Avenir_Next/AvenirNextLTPro-Regular.otf');
+}
+
+@font-face {
+    font-family: myFirstFont2;
+    src: url('../fonts/Avenir_Next/AvenirNextLTPro-Bold.otf');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: myFirstFont1;
+    width: 1440px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container {
+    margin: 0;
+}
+
+.nav {
+    display: inline-flex;
+    height: 80px;
+    width: 1320px;
+    border-bottom: 1px solid #DBDBDB;
+    padding: 25px;
+}
+
+.active {
+    color: #2B2B2B;
+}
+
+.myBreadcrumb {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+
+.ui_list {
+    margin-top: 30px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    list-style: none;
+    display: inline-flex;
+    color: #686868;
+}
+
+.ui_forward_icon {
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.inner_header {
+    font-family: myFirstFont2;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+.butn {
+    font-size: 16px;
+    padding: 13px, 16px, 13px, 16px;
+    border: none;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    outline: none;
+}
+
+.btn_folder {
+    width: 114px;
+    height: 40px;
+    border: 1px solid #222222;
+    border-radius: 6px;
+    color: #222222;
+}
+
+.btn_folder:hover {
+    background-color: #222222;
+    color: white;
+}
+
+.btn_file {
+    width: 93px;
+    height: 40px;
+    background-color: #008392;
+    border-radius: 6px;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.btn_file:hover {
+    color: #fff;
+    background-color: #016273;
+}
+
+.inner-addon {
+    width: 320px;
+    height: 40px;
+    padding: 13px, 16px, 13px, 16px;
+}
+
+.inner-addon {
+    position: relative;
+}
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+    background: url('../icons/SearchO.png');
+    background-size: 17.5px;
+    background-repeat: no-repeat;
+}
+
+.left-addon .glyphicon {
+    left: 10px;
+    top: 10px;
+}
+
+.glyphicon-user {
+    margin-right: 20px;
+}
+
+.right-addon .glyphicon {
+    right: 0px;
+}
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+.folder-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.common_card {
+    height: 262px;
+    width: 246px;
+    background: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.card_img {
+    width: 243.95px;
+    height: 205px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+.file_card_img {
+    width: 243.95px;
+    height: 205px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #DBDBDB;
+    background-color: #FFF5F7;
+}
+
+.card_text {
+    width: 100%;
+    height: auto;
+    padding: 14px 14px 14px 14px;
+}
+
+.file_card {
+    height: 286px;
+    position: relative;
+}
+
+.btn_cancel {
+    width: 83px;
+    height: 48px;
+    border: 2px solid #DBDBDB;
+    border-radius: 8px;
+}
+
+.btn_add {
+    width: 129px;
+    height: 48px;
+    background-color: #008392;
+    color: #FFFFFF;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn_add_disabled {
+    width: 129px;
+    height: 48px;
+    background-color: #EBEBEB;
+    color: #B0B0B0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn_file_disabled {
+    width: 129px;
+    height: 48px;
+    background-color: #EBEBEB;
+    color: #B0B0B0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    background-color: #EBEBEB;
+    color: #B0B0B0;
+}
+
+#loader {
+    position: fixed;
+    top: 35%;
+    left: 42%;
+    width: 51%;
+    height: 100%;
+    background: url("../loader/loader.gif") no-repeat;
+    width: 300px;
+    height: 300px;
+    display: none;
+}
+
+#loader-holder {
+    background: #222222;
+    z-index: 1000;
+}
+
+#folder_threedots {
+    background: transparent;
+    border: none;
+}
+
+#file_threedots {
+    background: transparent;
+    border: none;
+}
+
+.btn_threedots {
+    border: none;
+    background: transparent;
+}
+
+.btn_threedots:focus {
+    background: #EBEBEB;
+    border-radius: 50%;
+}
+
+.list_grp {
+    position: absolute;
+    z-index: 9999;
+    width: 195px;
+    height: 163px;
+    display: none;
+}
