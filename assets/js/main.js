@@ -1,7 +1,9 @@
 // File and Folder Structures....................................
 
-const folder_space = document.getElementById("folder");
+const folder_space = document.getElementById("folders");
 const file_space = document.getElementById("files");
+const common_card = document.getElementsByClassName("common_card");
+const folder_file_counter = document.getElementsByClassName("folder_file_counter");
 const create_folder_button = document.getElementById("btn_add");
 const create_folder_input = document.getElementById("folder-name");
 const create_file_button = document.getElementById("btn_file");
@@ -213,7 +215,7 @@ function forwardFolder(name) {
         y++;
         if (y == header.length) {
             x = x + `
-                <li class="breadcrumb-item" aria-current="page"><button  onclick="addBreadcrumb('${i}')" style="border:none;background:transparent;">${i}</button></li>
+                <li class="breadcrumb-item" aria-current="page"><button  onclick="addBreadcrumb('${i}')" style="border:none;background:transparent;outline:none">${i}</button></li>
             `;
         } else if (i == "My documents") {
             x = x + `
@@ -227,12 +229,31 @@ function forwardFolder(name) {
     }
     breadcrumb.innerHTML = x;
 
+    for (var i = 0; i < common_card.length; i++) {
+        common_card[i].style.visibility = "hidden";
+    }
+
+    folder_space.classList.add("skeleton");
+    file_space.classList.add("skeleton");
+
+    // for (var i = 0; i < folder_file_counter.length; i++) {
+    //     folder_file_counter[i].textContent
+    //     folder_file_counter[i].classList.add("skeleton2");
+    // }
+
     setTimeout(() => {
-        loader.style.visibility = "hidden";
+        folder_space.classList.remove("skeleton");
+        file_space.classList.remove("skeleton");
+        // for (var i = 0; i < folder_file_counter.length; i++) {
+        //     folder_file_counter[i].classList.remove("skeleton2");
+        // }
+        for (var i = 0; i < common_card.length; i++) {
+            common_card[i].style.visibility = "visible";
+        }
         renderFolders();
         renderFiles();
-    }, 2500);
-    loader.style.visibility = "visible";
+    }, 3000);
+
 }
 
 
@@ -269,12 +290,31 @@ function backwardFolder() {
     }
     breadcrumb.innerHTML = x;
 
+    for (var i = 0; i < common_card.length; i++) {
+        common_card[i].style.visibility = "hidden";
+    }
+
+    folder_space.classList.add("skeleton");
+    file_space.classList.add("skeleton");
+
+    // for (var i = 0; i < folder_file_counter.length; i++) {
+    //     folder_file_counter[i].classList.add("skeleton2");
+    // }
+
     setTimeout(() => {
-        loader.style.visibility = "hidden";
+        folder_space.classList.remove("skeleton");
+        file_space.classList.remove("skeleton");
+
+        // for (var i = 0; i < folder_file_counter.length; i++) {
+        //     folder_file_counter[i].classList.remove("skeleton2");
+        // }
+        for (var i = 0; i < common_card.length; i++) {
+            common_card[i].style.visibility = "visible";
+        }
+
         renderFolders();
         renderFiles();
     }, 2500);
-    loader.style.visibility = "visible";
 }
 
 function backwardByBackButton() {
