@@ -12,6 +12,7 @@ const file_counter = document.getElementById("file_counter");
 const folder_counter2 = document.getElementById("folder_counter2");
 const file_counter2 = document.getElementById("file_counter2");
 const delete_folder_button = document.getElementById("btn_delete_folder");
+const loader = document.getElementById("main_loader");
 
 
 //Function to calculate size of Object............................................................................
@@ -40,7 +41,7 @@ var Training = {
                             file: []
                         },
                     },
-                    file: ["11.txt"]
+                    file: ["11.doc"]
                 },
                 P2: {
                     folder: {
@@ -56,7 +57,7 @@ var Training = {
                     file: ["22.pdf"]
                 },
             },
-            file: ["1.txt", "2.pdf", "3.ppt"],
+            file: ["1.doc", "2.pdf", "3.ppt"],
         },
         Day2: {
             folder: {
@@ -69,15 +70,15 @@ var Training = {
                     file: []
                 },
             },
-            file: ["1.txt", "2.pdf", "3.ppt"],
+            file: ["1.doc", "2.pdf", "3.ppt"],
         }
     },
-    file: ['Maharshi.pdf', 'Jay.txt', 'Priyank.ppt']
+    file: ['Maharshi.pdf', 'Jay.doc', 'Priyank.ppt']
 };
 
 //File image properties...........................................................................................................................
 const file_img = {
-    txt: {
+    doc: {
         bgColor: "#F5F5FF",
         img_src: "./assets/icons/File-text.svg",
     },
@@ -148,7 +149,7 @@ function renderFiles() {
     var cnt = 0;
     for (var i of file_data.file) {
         const extension = i.split(".").pop();
-        if (extension == "ppt" || extension == "pdf" || extension == "txt") {
+        if (extension == "ppt" || extension == "pdf" || extension == "doc") {
             const file = `
             <div class="common_card file_card">
                 <div class="file_card_img" style="background-color:${file_img[extension].bgColor}">
@@ -225,8 +226,13 @@ function forwardFolder(name) {
         }
     }
     breadcrumb.innerHTML = x;
-    renderFolders();
-    renderFiles();
+
+    setTimeout(() => {
+        loader.style.visibility = "hidden";
+        renderFolders();
+        renderFiles();
+    }, 2500);
+    loader.style.visibility = "visible";
 }
 
 
@@ -262,8 +268,13 @@ function backwardFolder() {
         }
     }
     breadcrumb.innerHTML = x;
-    renderFolders();
-    renderFiles();
+
+    setTimeout(() => {
+        loader.style.visibility = "hidden";
+        renderFolders();
+        renderFiles();
+    }, 2500);
+    loader.style.visibility = "visible";
 }
 
 function backwardByBackButton() {
@@ -292,8 +303,13 @@ function deleteFolder(name) {
 function deleteFolder1(name) {
     console.log(name);
     delete folder_data.folder[name];
-    renderFolders();
-    renderFiles();
+
+    setTimeout(() => {
+        loader.style.visibility = "hidden";
+        renderFolders();
+        renderFiles();
+    }, 2500);
+    loader.style.visibility = "visible";
 }
 
 //DELETE file..................................................................................................................................
@@ -306,8 +322,13 @@ function deleteFile(name) {
 function deleteFile1(name) {
     var idx = file_data.file.indexOf(name);
     file_data.file.splice(idx, 1);
-    renderFiles();
-    renderFolders();
+
+    setTimeout(() => {
+        loader.style.visibility = "hidden";
+        renderFolders();
+        renderFiles();
+    }, 2500);
+    loader.style.visibility = "visible";
 }
 
 
@@ -326,8 +347,13 @@ function renameFolder1(name) {
     const input_folder = document.getElementById("rename_folder_input").value;
     folder_data.folder[input_folder] = folder_data.folder[name];
     delete folder_data.folder[name];
-    renderFolders();
-    renderFiles();
+
+    setTimeout(() => {
+        loader.style.visibility = "hidden";
+        renderFolders();
+        renderFiles();
+    }, 2500);
+    loader.style.visibility = "visible";
 }
 
 // Rename File..................................................................................................................................................
@@ -341,8 +367,13 @@ function renameFile1(name) {
     const input_file = document.getElementById("rename_file_input").value;
     var idx = file_data.file.indexOf(name);
     file_data.file[idx] = input_file;
-    renderFolders();
-    renderFiles();
+
+    setTimeout(() => {
+        loader.style.visibility = "hidden";
+        renderFolders();
+        renderFiles();
+    }, 2500);
+    loader.style.visibility = "visible";
 }
 
 
@@ -361,14 +392,24 @@ function duplicateFolder(name) {
         }
     }
     folder_data.folder[s1] = folder_data.folder[name];
-    renderFolders();
+
+    setTimeout(() => {
+        loader.style.visibility = "hidden";
+        renderFolders();
+    }, 2500);
+    loader.style.visibility = "visible";
 }
 
 function duplicateFile(name) {
     var idx = file_data.file.indexOf(name);
     file_data.file.splice(idx + 1, 0, name);
     file_data.file.join();
-    renderFiles();
+
+    setTimeout(() => {
+        loader.style.visibility = "hidden";
+        renderFiles();
+    }, 2500);
+    loader.style.visibility = "visible";
 }
 
 
@@ -420,8 +461,11 @@ create_folder_button.addEventListener('click', () => {
         document.body.style = "";
         document.querySelector(".modal-backdrop").remove();
 
-        renderFolders();
-        renderFiles();
+        setTimeout(() => {
+            loader.style.visibility = "hidden";
+            renderFolders();
+        }, 2500);
+        loader.style.visibility = "visible";
     } else {
         alert("Enter Full name of Your Folder");
     }
@@ -438,11 +482,15 @@ create_file_button.addEventListener("click", () => {
         document.body.style = "";
         document.getElementById("fileModal").style.display = "none";
         document.querySelector(".modal-backdrop").remove();
-        renderFiles();
+
+        setTimeout(() => {
+            loader.style.visibility = "hidden";
+            renderFiles();
+        }, 2500);
+        loader.style.visibility = "visible";
     } else {
         alert("Enter full name for your file");
     }
-    console.log(create_file_input);
     create_file_input.value = "";
 });
 
