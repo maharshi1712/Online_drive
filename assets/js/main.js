@@ -113,7 +113,7 @@ function renderFolders() {
         if (i != "") {
             var s1 = `
             <div class="common_card folder_card">
-                <button style="border:none;background:transparent;" onclick="forwardFolder('${i}')">
+                <button style="border:none;background:transparent;padding:0; margin:0;" onclick="forwardFolder('${i}')">
                     <div class="card_img">
                         <img src="./assets/icons/Folder.svg" alt="">
                     </div>
