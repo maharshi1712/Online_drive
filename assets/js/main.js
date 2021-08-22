@@ -74,8 +74,8 @@ var Training = {
     },
     file: ['Maharshi.pdf', 'Jay.txt', 'Priyank.ppt']
 };
-/////////////////////////////////////////////////////////////////////////////////////////
 
+//File image properties...........................................................................................................................
 const file_img = {
     txt: {
         bgColor: "#F5F5FF",
@@ -103,7 +103,7 @@ var file_data = Training;
 
 
 
-// Rendering .........................................................
+// Rendering .................................................................................................................................................
 function renderFolders() {
     var folders = "";
     var l = 0;
@@ -142,7 +142,7 @@ function renderFolders() {
     console.log(Training);
 }
 
-// File structure..........................................................................................................
+// File structure............................................................................................................................................................
 function renderFiles() {
     var files = "";
     var cnt = 0;
@@ -185,7 +185,7 @@ function renderFiles() {
 
 
 
-//Route Breadcrumb...........................................................................................................
+//Route Breadcrumb...............................................................................................................................
 function addBreadcrumb(name) {
     const idx = header.indexOf(name);
     header = header.slice(0, idx + 1);
@@ -197,7 +197,7 @@ function addBreadcrumb(name) {
     backwardFolder();
 }
 
-//Forward Folder..............................................................................................................
+//Forward Folder.................................................................................................................................
 function forwardFolder(name) {
     file_data = file_data.folder[name];
     folder_data = folder_data.folder[name];
@@ -351,7 +351,17 @@ function renameFile1(name) {
 
 //Duplicate Folder................................................................................................................................................
 function duplicateFolder(name) {
-
+    addDotMenu(name);
+    var s1 = name;
+    if (folder_data.folder.hasOwnProperty(name)) {
+        var x = 1;
+        s1 = "" + `${name}` + "(" + `${x}` + ")";
+        while (folder_data.folder.hasOwnProperty(s1)) {
+            var s1 = "" + `${name}` + "(" + `${++x}` + ")";
+        }
+    }
+    folder_data.folder[s1] = folder_data.folder[name];
+    renderFolders();
 }
 
 function duplicateFile(name) {
@@ -390,8 +400,17 @@ $(document).mouseup(function(e) {
 
 //Create folder event listner....................................................................................................................................
 create_folder_button.addEventListener('click', () => {
-    const val_folder = create_folder_input.value;
+    var val_folder = create_folder_input.value;
     if (val_folder != "") {
+
+        if (folder_data.folder.hasOwnProperty(val_folder)) {
+            var x = 1;
+            var s1 = "" + `${val_folder}` + "(" + `${x}` + ")";
+            while (folder_data.folder.hasOwnProperty(s1)) {
+                var s1 = "" + `${val_folder}` + "(" + `${++x}` + ")";
+            }
+            val_folder = s1;
+        }
         folder_data.folder[val_folder] = {
             folder: {},
             file: []
