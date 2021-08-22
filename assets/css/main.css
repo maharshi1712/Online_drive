@@ -230,21 +230,22 @@ body {
     color: #B0B0B0;
 }
 
-#loader {
-    position: fixed;
-    top: 35%;
-    left: 42%;
-    width: 51%;
-    height: 100%;
-    background: url("../loader/loader.gif") no-repeat;
-    width: 300px;
-    height: 300px;
-    display: none;
+#loader-holder {
+    position: relative;
 }
 
-#loader-holder {
-    background: #222222;
-    z-index: 1000;
+#main_loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -10%;
+    left: -18%;
+    background: #bababa7e;
+    width: 1931px;
+    height: 1120px;
+    z-index: 10000;
+    visibility: hidden;
 }
 
 #folder_threedots {
