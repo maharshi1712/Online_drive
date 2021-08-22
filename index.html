@@ -20,47 +20,49 @@
         </div>
     </div>
     <!-- Navbar start -->
-    <div class="nav">
-        <div class="container" style="width:100px;">
+    <div class="container">
 
-            <button onclick="backwardByBackButton()" style="border:none;background:transparent;height:20px; width:20px"><img style="margin-right: 3px;" src="./assets/icons/Back.png" width="16" height="16" altstyle="color:#BCBCBC;" alt=""></button>
-            <a class="navbar-brand" href="#"><img src="./assets/images/logo.png" alt="" width="36" height="36"></a>
+
+        <div class="nav">
+            <div class="container" style="width:100px;">
+                <button onclick="backwardByBackButton()" style="border:none;background:transparent;height:20px; width:20px"><img style="margin-right: 3px;" src="./assets/icons/Back.png" width="16" height="16" altstyle="color:#BCBCBC;" alt=""></button>
+                <a class="navbar-brand" href="#"><img src="./assets/images/logo.png" alt="" width="36" height="36"></a>
+            </div>
+            <!-- Breadcrumb start-->
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill=''/%3E%3C/svg%3E&#34;); margin-top:5px;" aria-label="breadcrumb">
+                <ol class="breadcrumb" id="myBreadcrumb">
+                    <li style="color:#686868;" class="breadcrumb-item">My documents</li>
+                    <li class="breadcrumb-item" aria-current="page"><button style="border:none;background:transparent;">Training</button></li>
+                    <!-- <li class="breadcrumb-item active" aria-current="page">New hire onboarding</li> -->
+                </ol>
+            </nav>
+            <!-- Breadcrumb end -->
         </div>
-        <!-- Breadcrumb start-->
-        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill=''/%3E%3C/svg%3E&#34;); margin-top:5px;" aria-label="breadcrumb">
-            <ol class="breadcrumb" id="myBreadcrumb">
-                <li style="color:#686868;" class="breadcrumb-item">My documents</li>
-                <li class="breadcrumb-item" aria-current="page"><button style="border:none;background:transparent;">Training</button></li>
-                <!-- <li class="breadcrumb-item active" aria-current="page">New hire onboarding</li> -->
-            </ol>
-        </nav>
-        <!-- Breadcrumb end -->
-    </div>
-    <!-- Navbar end -->
+        <!-- Navbar end -->
 
-    <!-- New hire onboarding -->
-    <div class="container" style="padding:100px;width:100%;background-color:#F9F9FB;">
-        <nav class="navbar navbar-light">
-            <h3 class="inner_header">
-                New hire onboarding
-                <br>
-                <p style="font-size:16px; color:#717171;margin-top:10px;font-family:myFirstFont1;" class="folder_file_counter"><span id="folder_counter">3</span> folders, <span id="file_counter"> 4</span> files</p>
-                </h1>
-                <div class="btn_grp">
-                    <button type="button" class="butn btn_folder" data-bs-toggle="modal" data-bs-target="#folderModal">New folder</button>
-                    <button type="button" class="butn btn_file" data-bs-toggle="modal" data-bs-target="#fileModal">New file</button>
-                </div>
-        </nav>
-        <div class="inner-addon left-addon">
-            <i class="glyphicon glyphicon-user"></i>
-            <input oninput="search()" type="text" class="form-control" id="search_input" placeholder="Search for a folder or file" />
-        </div>
+        <!-- New hire onboarding -->
+        <div class="container" style="padding:100px;width:100%;background-color:#F9F9FB;">
+            <nav class="navbar navbar-light">
+                <h3 class="inner_header">
+                    New hire onboarding
+                    <br>
+                    <p style="font-size:16px; color:#717171;margin-top:10px;font-family:myFirstFont1;" class="folder_file_counter"><span id="folder_counter">3</span> folders, <span id="file_counter"> 4</span> files</p>
+                    </h1>
+                    <div class="btn_grp">
+                        <button type="button" class="butn btn_folder" data-bs-toggle="modal" data-bs-target="#folderModal">New folder</button>
+                        <button type="button" class="butn btn_file" data-bs-toggle="modal" data-bs-target="#fileModal">New file</button>
+                    </div>
+            </nav>
+            <div class="inner-addon left-addon">
+                <i class="glyphicon glyphicon-user"></i>
+                <input oninput="search()" type="text" class="form-control" id="search_input" placeholder="Search for a folder or file" />
+            </div>
 
-        <!-- Folder Structure start -->
+            <!-- Folder Structure start -->
 
-        <h4 style="font-size:16px;font-weight:700;font-family:myFirstFont2;margin-top:40px;" class="folder_file_counter"><span id="folder_counter2">3</span> Folders</h4>
-        <div class="folder-container" id="folders">
-            <!-- <div class="common_card folder_card">
+            <h4 style="font-size:16px;font-weight:700;font-family:myFirstFont2;margin-top:40px;" class="folder_file_counter"><span id="folder_counter2">3</span> Folders</h4>
+            <div class="folder-container" id="folders">
+                <!-- <div class="common_card folder_card">
                 <div class="card_img">
                     <img src="./assets/icons/Folder.svg" alt="">
                 </div>
@@ -73,16 +75,16 @@
                     </div>
                 </div>
             </div> -->
-        </div>
+            </div>
 
-        <!-- Folder Structure End-->
+            <!-- Folder Structure End-->
 
 
-        <!-- Files Structure Start -->
+            <!-- Files Structure Start -->
 
-        <h4 style="font-size:16px;font-weight:700;font-family:myFirstFont2;margin-top:40px;" class="folder_file_counter"><span id="file_counter2">4</span> Files</h4>
-        <div class="folder-container" id="files">
-            <!-- <div class="common_card file_card">
+            <h4 style="font-size:16px;font-weight:700;font-family:myFirstFont2;margin-top:40px;" class="folder_file_counter"><span id="file_counter2">4</span> Files</h4>
+            <div class="folder-container" id="files">
+                <!-- <div class="common_card file_card">
                 <div class="file_card_img">
                     <img src="./assets/icons/File-pdf.svg" alt="">
                 </div>
@@ -96,9 +98,10 @@
                     </div>
                 </div>
             </div> -->
-        </div>
+            </div>
 
-        <!-- Files Structure End -->
+            <!-- Files Structure End -->
+        </div>
 
         <!-- Create Modal start -->
         <div id="modals">
