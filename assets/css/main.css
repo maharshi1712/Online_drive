@@ -241,8 +241,8 @@ body {
     top: 0;
     left: 0;
     background: #bababa7e;
-    width: 1931px;
-    height: 1120px;
+    width: 100%;
+    height: 100%;
     z-index: 10000;
     visibility: hidden;
 }
